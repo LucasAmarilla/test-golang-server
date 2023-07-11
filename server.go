@@ -9,8 +9,20 @@ import (
 
 var templates *template.Template
 
+type usuario struct {
+	Nome  string
+	Email string
+	Desc  string
+}
+
 func home(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "index.html", nil)
+	u := usuario{
+		"Lucas",
+		"é canibal",
+		"Arrebeta sua bunda no s3x0 4n4L",
+	}
+
+	templates.ExecuteTemplate(w, "index.html", u)
 }
 
 func main() {
